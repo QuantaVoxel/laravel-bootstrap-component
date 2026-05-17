@@ -14,7 +14,7 @@
     "iconify-laravel",
     "asset-bundler",
     "ui-framework",
-    "quantavoxel",
+    "quantavoxel"
   ],
   "license": "MIT",
   "authors": [
