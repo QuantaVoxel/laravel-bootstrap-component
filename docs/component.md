@@ -372,3 +372,55 @@ Group multiple avatars with a slight overlap and optional hover effect.
     <x-bootstrap::avatar image="assets/media/avatars/300-2.jpg" shape="circle" />
 </x-bootstrap::avatar-group>
 ```
+
+---
+
+## Separator
+
+Separator is a custom component used to divide page blocks with space and visual lines. It supports sizes, colors, styles, and centered content.
+
+### Basic Usage
+```blade
+<x-bootstrap::separator class="my-10" />
+```
+
+### Sizes
+Use the `size` property (2, 3, 4, 5) to change the border width.
+
+```blade
+<x-bootstrap::separator size="2" class="my-10" />
+<x-bootstrap::separator size="3" class="my-10" />
+```
+
+### Colors
+Use the `color` property to change the border color.
+
+```blade
+<x-bootstrap::separator color="primary" class="my-10" />
+<x-bootstrap::separator color="danger" class="my-10" />
+```
+
+### Styles
+Use the `style` property (`dashed`, `dotted`) to change the border style.
+
+```blade
+<x-bootstrap::separator style="dashed" color="primary" class="my-10" />
+<x-bootstrap::separator style="dotted" color="success" class="my-10" />
+```
+
+### Centered Content
+Simply add content inside the component to automatically create a centered content separator.
+
+```blade
+<x-bootstrap::separator class="my-15">Separator</x-bootstrap::separator>
+
+<x-bootstrap::separator style="dotted" color="dark" class="my-15">
+    <span class="h1">Title</span>
+</x-bootstrap::separator>
+
+<x-bootstrap::separator style="dashed" color="primary" class="my-15">
+    <i class="ki-duotone ki-abstract-19 fs-1 text-primary">
+        <span class="path1"></span><span class="path2"></span>
+    </i>
+</x-bootstrap::separator>
+```
