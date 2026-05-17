@@ -1,0 +1,8 @@
+{
+  "resources/js/icon.js": {
+    "file": "assets/icon.js",
+    "name": "icon",
+    "src": "resources/js/icon.js",
+    "isEntry": true
+  }
+}
