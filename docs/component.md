@@ -256,3 +256,52 @@ Modes: `stretch`, `stretch-75`, `stretch-50`, `stretch-33`, `stretch-25`.
     </div>
 </div>
 ```
+
+### Ribbons
+Add attractive ribbons to your cards with various styles and positions.
+
+#### Basic Ribbon
+```blade
+<x-bootstrap::card title="Basic Ribbon" ribbon="Ribbon" ribbonColor="primary">
+    ...
+</x-bootstrap::card>
+```
+
+#### Rounded Corners
+Use `ribbonDirection` to set the edge position (`start`, `end`, `top`, `bottom`).
+
+```blade
+<x-bootstrap::card title="Rounded Ribbon" ribbon="Ribbon" ribbonDirection="end">
+    ...
+</x-bootstrap::card>
+```
+
+#### Vertical Ribbon
+Pair `ribbonVertical` with `ribbonDirection="top"`.
+
+```blade
+<x-bootstrap::card title="Vertical Ribbon" ribbon="OK!" ribbonDirection="top" ribbonVertical ribbonColor="danger">
+    ...
+</x-bootstrap::card>
+```
+
+#### Clip Ribbon
+Enable the clip style with the `ribbonClip` property.
+
+```blade
+<x-bootstrap::card title="Clip Ribbon" ribbon="Ribbon" ribbonDirection="end" ribbonClip ribbonColor="info">
+    ...
+</x-bootstrap::card>
+```
+
+#### Triangle Ribbon
+Triangle ribbons are positioned at the corners. Use `ribbonTriangle` with directions like `top-start`, `top-end`, `bottom-start`, or `bottom-end`.
+
+```blade
+<x-bootstrap::card title="Triangle Ribbon" ribbonTriangle="top-start" ribbonColor="primary">
+    <x-slot name="ribbon">
+        <i class="bi bi-check2 fs-2 text-white"></i>
+    </x-slot>
+    ...
+</x-bootstrap::card>
+```

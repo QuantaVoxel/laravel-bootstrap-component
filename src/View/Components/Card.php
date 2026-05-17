@@ -26,6 +26,12 @@ class Card extends Component
         public ?string $bodyClass = null,
         public string $tag = 'div',
         public bool $withoutBody = false,
+        public ?string $ribbon = null,
+        public ?string $ribbonColor = 'primary',
+        public ?string $ribbonDirection = null,
+        public bool $ribbonVertical = false,
+        public bool $ribbonClip = false,
+        public ?string $ribbonTriangle = null,
     ) {
     }
 
