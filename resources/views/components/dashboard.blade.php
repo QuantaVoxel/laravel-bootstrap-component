@@ -45,46 +45,31 @@
         document.documentElement.setAttribute("data-bs-theme", themeMode);
     }
 </script>
-<!--end::Theme mode setup on page load-->
 
 
-<!--begin::App-->
 <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
-    <!--begin::Page-->
     <div class="app-page  flex-column flex-column-fluid " id="kt_app_page">
-        <!--begin::Header-->
-        <x-bootstrap::dashboard-header/>
-        <!--end::Header-->
-        <!--begin::Wrapper-->
+
+        <x-bootstrap::dashboard-header>
+            <x-bootstrap::thememode/>
+            <x-bootstrap::dashboard-header-profile/>
+        </x-bootstrap::dashboard-header>
+
         <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
             <!--begin::Sidebar-->
             <x-bootstrap::dashboard-sidebar/>
-            <!--end::Sidebar-->
 
-
-            <!--begin::Main-->
             <div class="app-main flex-column flex-row-fluid " id="kt_app_main">
-                <!--begin::Content wrapper-->
                 <div class="d-flex flex-column flex-column-fluid">
                     {{ $slot }}
                 </div>
-                <!--end::Content wrapper-->
-
                 @isset($footer)
                     {{ $footer }}
                 @endisset
             </div>
-            <!--end:::Main-->
-
-
         </div>
-        <!--end::Wrapper-->
-
-
     </div>
-    <!--end::Page-->
 </div>
-<!--end::App-->
 
 @isset($modal)
     {{ $modal }}

@@ -12,6 +12,7 @@ final class BootstrapComponentServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component.php', 'bootstrap-component');
         $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component-sidebar.php', 'bootstrap-component-sidebar');
+        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component-header.php', 'bootstrap-component-header');
     }
 
 
@@ -55,6 +56,7 @@ ECHO;
             $this->publishes([
                 __DIR__ . '/../config/bootstrap-component.php' => config_path('bootstrap-component.php'),
                 __DIR__ . '/../config/bootstrap-component-sidebar.php' => config_path('bootstrap-component-sidebar.php'),
+                __DIR__ . '/../config/bootstrap-component-header.php' => config_path('bootstrap-component-header.php'),
             ], 'qv-component-config');
         }
     }

@@ -6,12 +6,23 @@ use Illuminate\View\Component;
 
 class DashboardHeader extends Component
 {
+    public array $menu;
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->menu = config('bootstrap-component-header', []);
+    }
 
     /**
      * @inheritDoc
      */
     public function render()
     {
-        return $this->view('bootstrap::components.dashboard-header');
+        return view('bootstrap::components.dashboard-header');
     }
 }
