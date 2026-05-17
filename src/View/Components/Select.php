@@ -12,6 +12,7 @@ class Select extends Component
         public string  $style = 'default',
         public bool    $required = false,
         public string  $symbol = 'label',
+        public ?string $size = null,
     )
     {
     }
@@ -21,6 +22,7 @@ class Select extends Component
         $selectClasses = [
             'form-select',
             "form-select-{$this->style}" => $this->style !== 'default',
+            "form-select-{$this->size}" => $this->size,
         ];
 
         return view('bootstrap::components.select', [
