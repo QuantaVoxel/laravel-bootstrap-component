@@ -6,7 +6,6 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/style.css',
                 'resources/js/icon.js',
             ],
             publicDirectory: 'public',

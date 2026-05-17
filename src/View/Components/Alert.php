@@ -9,7 +9,7 @@ class Alert extends Component
     public string $type;
 
     public string $message;
-    public   string $color;
+    public  string $color;
 
     public function __construct(string $type = 'info', string $message = '')
     {

@@ -8,9 +8,10 @@ use Illuminate\Support\ServiceProvider;
 final class BootstrapComponentServiceProvider extends ServiceProvider
 {
 
-    public function register()
+    public function register(): void
     {
-
+        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component.php', 'bootstrap-component');
+        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component-sidebar.php', 'bootstrap-component-sidebar');
     }
 
 
@@ -18,29 +19,44 @@ final class BootstrapComponentServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'bootstrap');
 
-        Blade::componentNamespace('Quantavoxel\\LaravelBootstrapComponent\\View\\Components', 'bootstrap');
+        $this->bladeConfigure();
+        $this->assetConfigure();
 
-        Blade::directive('bootstrapComponentStyle', function () {
+    }
+
+    private function bladeConfigure(): void
+    {
+        Blade::componentNamespace('Quantavoxel\\LaravelBootstrapComponent\\View\\Components', 'bootstrap');
+    }
+
+    private function assetConfigure(): void
+    {
+        Blade::directive('qvComponentStyles', function () {
             return <<<ECHO
-<link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/style.css')}}" >
+<link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.css')}}" >
+<link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/css/style.bundle.css')}}" >
 ECHO;
         });
 
-        Blade::directive('bootstrapComponentScript', function () {
+        Blade::directive('qvComponentScripts', function () {
             return <<<ECHO
 <script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/icon.js')}}" ></script>
-<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/bootstrap.bundle.js')}}" ></script>
+<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.js')}}" ></script>
+<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/js/scripts.bundle.js')}}" ></script>
 ECHO;
         });
-
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
+                __DIR__ . '/../public/assets' => public_path('vendor/quantavoxel/bootstrap-component/assets'),
                 __DIR__ . '/../public/build' => public_path('vendor/quantavoxel/bootstrap-component'),
-                __DIR__ . '/../public/bootstrap' => public_path('vendor/quantavoxel/bootstrap-component/assets'),
-            ]);
+            ], 'qv-component-assets');
+
+            $this->publishes([
+                __DIR__ . '/../config/bootstrap-component.php' => config_path('bootstrap-component.php'),
+                __DIR__ . '/../config/bootstrap-component-sidebar.php' => config_path('bootstrap-component-sidebar.php'),
+            ], 'qv-component-config');
         }
     }
-
 
 }
