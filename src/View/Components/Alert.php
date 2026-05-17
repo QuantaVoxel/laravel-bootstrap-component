@@ -6,28 +6,42 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    public string $type;
 
-    public string $message;
-    public string $color;
+    public function __construct(
+        public string $title,
 
-    public function __construct(string $type = 'info', string $message = '')
+        public ?string $titleColor = null,
+        public ?string $description = null,
+        public string $color = 'primary',
+        public bool $dismissible = false,
+        public string $dismissibleColor = 'dark',
+        public bool $show = true,
+        public string $icon = 'solar:shield-warning-outline',
+        public string $iconColor = 'primary',
+        public bool $withoutIcon = false,
+        public string $type = "alert", // alert, solid , light
+        public ?string $borderType = "solid" , // solid, dashed, dotted
+    )
     {
-        $this->type = $type;
-        $this->message = $message;
-
-        $this->color = match ($type) {
-            'success' => 'alert-success',
-            'info' => 'alert-info',
-            'warning' => 'alert-warning',
-            'danger' => 'alert-danger',
-            default => 'alert-primary',
-        };
-
+        if(!$this->titleColor){
+            $this->titleColor = $this->color;
+        }
     }
 
     public function render()
     {
-        return view('bootstrap::components.alert');
+
+
+        return view('bootstrap::components.alert', [
+            'class' => [
+                "alert",
+                "{$this->type}-{$this->color}" ,
+                "alert-dismissible" => $this->dismissible,
+                "d-flex align-items-center p-5",
+                "d-none" => !$this->show,
+                "border-{$this->borderType}",
+                "border-{$this->color}"
+            ],
+        ]);
     }
 }
