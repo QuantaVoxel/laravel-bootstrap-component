@@ -3,7 +3,7 @@
     <!--begin::Icon-->
     <span class="iconify" data-icon="solar:chart-2-bold-duotone" data-inline="true" style="color: red" ></span>
     <span class="text-danger">
-        <span class="iconify" data-icon="solar:pie-chart-bold" data-inline="false"></span>
+        <span class="iconify" data-icon="solar:chat-square-code-bold-duotone" data-inline="false"></span>
     </span>
     <!--end::Icon-->
 
