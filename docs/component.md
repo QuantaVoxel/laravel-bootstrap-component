@@ -76,3 +76,61 @@ Pass any standard HTML attributes; they will be merged into the input.
 ```blade
 <x-bootstrap::range name="disabled_range" label="Disabled Range" disabled />
 ```
+
+---
+
+## Checkbox & Radio
+
+Highly customizable checks and radios with support for Metronic-style variants.
+
+### Basic Usage
+```blade
+<x-bootstrap::checkbox name="option1" value="1" label="Default Checkbox" />
+<x-bootstrap::radio name="option2" value="1" label="Default Radio" />
+```
+
+### Custom & Solid Styles
+Use `custom` and `solid` for modern Metronic layouts.
+
+```blade
+<x-bootstrap::checkbox name="c1" value="1" label="Solid Checkbox" solid />
+<x-bootstrap::radio name="r1" value="1" label="Solid Radio" solid />
+```
+
+### Colors
+Supported colors: `success`, `danger`, `warning`.
+
+```blade
+<x-bootstrap::checkbox name="c2" value="1" label="Success" color="success" solid checked />
+```
+
+### Sizes
+Supported sizes: `sm`, `lg`, or custom pixel values (`30`, `40`, `50`).
+
+```blade
+<x-bootstrap::checkbox name="c3" value="1" label="Large" size="lg" solid />
+<x-bootstrap::checkbox name="c4" value="1" label="30px" size="30" solid />
+```
+
+### Switches (Checkbox only)
+```blade
+<x-bootstrap::checkbox name="s1" value="1" label="Toggle me" switch solid />
+```
+
+### Image Selection
+Wrap components in a row with `data-kt-buttons="true"` for automatic state handling.
+
+```blade
+<div class="row" data-kt-buttons="true" data-kt-buttons-target=".form-check-image, .form-check-input">
+    <div class="col-4">
+        <x-bootstrap::radio 
+            name="option" 
+            value="1" 
+            label="Option 1" 
+            image="assets/media/stock/600x400/img-1.jpg" 
+            solid 
+            checked 
+        />
+    </div>
+</div>
+```
