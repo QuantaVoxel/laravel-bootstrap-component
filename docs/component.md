@@ -163,3 +163,96 @@ Wrap components in a row with `data-kt-buttons="true"` for automatic state handl
     </div>
 </div>
 ```
+
+---
+
+## Card
+
+The card component is a flexible and extensible content container. It includes options for headers, footers, toolbars, and various style variants.
+
+### Basic Usage
+```blade
+<x-bootstrap::card title="Basic Card">
+    Lorem Ipsum is simply dummy text...
+    <x-slot name="footer">Footer</x-slot>
+</x-bootstrap::card>
+```
+
+### Style Variants
+Supported styles: `bordered`, `dashed`, `flush`, `px0` (reset side paddings).
+
+```blade
+<x-bootstrap::card title="Bordered Card" bordered>
+    ...
+</x-bootstrap::card>
+
+<x-bootstrap::card title="Flush Card" flush>
+    ...
+</x-bootstrap::card>
+```
+
+### Collapsible Card
+Enable collapsible functionality with the `collapsible` property.
+
+```blade
+<x-bootstrap::card title="Collapsible Card" collapsible :expanded="false">
+    This card is collapsed by default.
+</x-bootstrap::card>
+```
+
+### Card Scroll
+Use `scroll` and `height` to create a card with scrollable content.
+
+```blade
+<x-bootstrap::card title="Scrollable Card" scroll height="200px">
+    Lots of content here...
+</x-bootstrap::card>
+```
+
+### Toolbar & Slots
+Add actions to the card header using the `toolbar` slot. You can also customize the entire body.
+
+```blade
+<x-bootstrap::card title="Card with Toolbar">
+    <x-slot name="toolbar">
+        <button type="button" class="btn btn-sm btn-light">Action</button>
+    </x-slot>
+    Lorem Ipsum is simply dummy text...
+</x-bootstrap::card>
+
+<!-- Using custom body slot -->
+<x-bootstrap::card title="Custom Body Slot">
+    <x-slot name="body">
+        <div class="card-body p-0">
+             <div class="card-p">Custom structure...</div>
+        </div>
+    </x-slot>
+</x-bootstrap::card>
+```
+
+### Linkable Card
+Use the `tag` property to change the root element to an `<a>` tag and `withoutBody` to handle custom internal padding/styles.
+
+```blade
+<x-bootstrap::card tag="a" href="#" class="hover-elevate-up parent-hover" withoutBody>
+    <div class="card-body d-flex align-items">
+        <span class="ms-3 text-gray-700 parent-hover-primary fs-6 fw-bold">
+            Example link title
+        </span>
+    </div>
+</x-bootstrap::card>
+```
+
+### Card Stretch
+Use the `stretch` property to make cards the same height within a grid.
+Modes: `stretch`, `stretch-75`, `stretch-50`, `stretch-33`, `stretch-25`.
+
+```blade
+<div class="row g-5">
+    <div class="col-lg-4">
+        <x-bootstrap::card title="Height 100%" stretch="stretch">
+            ...
+        </x-bootstrap::card>
+    </div>
+</div>
+```
