@@ -424,3 +424,44 @@ Simply add content inside the component to automatically create a centered conte
     </i>
 </x-bootstrap::separator>
 ```
+
+---
+
+## Rating
+
+The Rating component allows you to display and edit star-based ratings.
+
+### Basic Usage
+Display a read-only rating.
+
+```blade
+<x-bootstrap::rating :value="3" />
+```
+
+### Custom Icons & Colors
+Change the icon (using Iconify names) and customize the color using Bootstrap text color classes (default is `warning`).
+
+```blade
+<x-bootstrap::rating :value="4" icon="solar:heart-bold" iconColor="danger" class="fs-2" />
+```
+
+### Edit Mode
+Enable interactive rating with radio inputs for use in forms.
+
+```blade
+<x-bootstrap::rating name="user_rating" :value="2" edit />
+```
+
+### Reset Button
+In edit mode, you can show a reset button to set the value back to 0.
+
+```blade
+<x-bootstrap::rating name="rating_with_reset" :value="3" edit showReset />
+```
+
+### Custom Star Count
+Set the maximum number of stars (default is 5).
+
+```blade
+<x-bootstrap::rating :value="7" :max="10" />
+```

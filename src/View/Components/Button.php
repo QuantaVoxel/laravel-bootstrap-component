@@ -3,11 +3,33 @@
 namespace Quantavoxel\LaravelBootstrapComponent\View\Components;
 
 use Illuminate\View\Component;
+use phpDocumentor\Reflection\PseudoTypes\ValueOf;
 use Quantavoxel\LaravelBootstrapComponent\Enums\ButtonHoverEffect;
+use Quantavoxel\LaravelBootstrapComponent\Enums\Color;
 
 class Button extends Component
 {
 
+    /**
+     * @param 'primary'|'danger' $color
+     * @param string $type
+     * @param string|null $hoverEffect
+     * @param bool $outline
+     * @param string $outlineType
+     * @param string|null $icon
+     * @param string|null $iconSize
+     * @param bool $iconOnly
+     * @param string|null $size
+     * @param bool $flex
+     * @param bool $withBadge
+     * @param string $badgeColor
+     * @param string $badgeText
+     * @param string $badgePosition
+     * @param bool $badgeOutline
+     * @param bool $badgeLight
+     * @param string|null $badgeShape
+     * @param string $badgeSize
+     */
     public function __construct(
         public string  $color,
         public string  $type = 'button',
@@ -32,9 +54,9 @@ class Button extends Component
     {
     }
 
-    public
-    function render()
+    public function render()
     {
+
         $badgeClass = match ($this->badgePosition) {
             'top-right' => 'position-absolute top-0 start-100 translate-middle',
             'top-left' => 'position-absolute top-0 start-0 translate-middle',
