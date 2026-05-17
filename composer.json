@@ -1,6 +1,21 @@
 {
   "name": "quantavoxel/laravel-bootstrap-component",
   "type": "library",
+  "description": "A lightweight Laravel package offering reusable Bootstrap 5 Blade components, optimized asset bundling, and a highly flexible, universal icon integration system.",
+  "keywords": [
+    "laravel",
+    "laravel-component",
+    "bootstrap-laravel-component",
+    "bootstrap-5",
+    "laravel-package",
+    "blade-components",
+    "universal-icons",
+    "icon-integration",
+    "iconify-laravel",
+    "asset-bundler",
+    "ui-framework",
+    "quantavoxel",
+  ],
   "license": "MIT",
   "authors": [
     {
