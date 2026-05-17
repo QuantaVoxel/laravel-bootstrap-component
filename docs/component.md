@@ -305,3 +305,70 @@ Triangle ribbons are positioned at the corners. Use `ribbonTriangle` with direct
     ...
 </x-bootstrap::card>
 ```
+
+---
+
+## Avatar (Symbol)
+
+Avatars (Symbols) are custom components for user profile pictures, labels, or brand icons.
+
+### Basic Usage
+Render an avatar using an image URL.
+
+```blade
+<x-bootstrap::avatar image="assets/media/avatars/300-6.jpg" size="50px" />
+```
+
+### Background Image
+Place the avatar as a background image for better centering and scaling.
+
+```blade
+<x-bootstrap::avatar bgImage="assets/media/avatars/300-12.jpg" size="50px" />
+```
+
+### Text Labels
+Use initials or labels with background and text colors.
+
+```blade
+<x-bootstrap::avatar label="A" color="success" size="50px" />
+<x-bootstrap::avatar label="L" color="danger" size="50px" />
+```
+
+### Shapes & Ratios
+Change the shape to `circle` or `square`, and set the ratio (e.g., `2by3`).
+
+```blade
+<x-bootstrap::avatar bgImage="..." shape="circle" size="50px" />
+<x-bootstrap::avatar image="..." ratio="2by3" size="50px" />
+```
+
+### Badges
+Add status or notification badges to avatars.
+
+```blade
+<!-- With numeric badge -->
+<x-bootstrap::avatar label="A" badge="3" badgeColor="danger" size="50px" />
+
+<!-- Status indicator (dot only) -->
+<x-bootstrap::avatar image="..." :badge="true" badgeColor="success" badgePosition="top-100 start-100" />
+```
+
+### Sizing
+Support for various sizes from `20px` up to `200px`.
+
+```blade
+<x-bootstrap::avatar label="S" size="30px" />
+<x-bootstrap::avatar label="M" size="75px" />
+<x-bootstrap::avatar label="L" size="150px" />
+```
+
+### Avatar Group
+Group multiple avatars with a slight overlap and optional hover effect.
+
+```blade
+<x-bootstrap::avatar-group hover>
+    <x-bootstrap::avatar image="assets/media/avatars/300-1.jpg" shape="circle" />
+    <x-bootstrap::avatar label="J" color="primary" shape="circle" />
+    <x-bootstrap::avatar image="assets/media/avatars/300-2.jpg" shape="circle" />
+</x-bootstrap::avatar-group>
+```
