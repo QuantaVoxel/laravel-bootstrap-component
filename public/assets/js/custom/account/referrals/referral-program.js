@@ -4,12 +4,12 @@
 var KTAccountReferralsReferralProgram = function () {
     // Private functions
 
-    var initReferralProgrammClipboard = function() {
+    var initReferralProgrammClipboard = function () {
         var button = document.querySelector('#kt_referral_program_link_copy_btn');
         var input = document.querySelector('#kt_referral_link_input');
         var clipboard = new ClipboardJS(button);
 
-        clipboard.on('success', function(e) {
+        clipboard.on('success', function (e) {
             var buttonCaption = button.innerHTML;
             //Add bgcolor
             input.classList.add('bg-success');
@@ -17,12 +17,12 @@ var KTAccountReferralsReferralProgram = function () {
 
             button.innerHTML = 'Copied!';
 
-            setTimeout(function() {
+            setTimeout(function () {
                 button.innerHTML = buttonCaption;
 
                 // Remove bgcolor
-                input.classList.remove('bg-success'); 
-                input.classList.remove('text-inverse-success'); 
+                input.classList.remove('bg-success');
+                input.classList.remove('text-inverse-success');
             }, 3000);  // 3seconds
 
             e.clearSelection();
@@ -38,6 +38,6 @@ var KTAccountReferralsReferralProgram = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTAccountReferralsReferralProgram.init();
 });

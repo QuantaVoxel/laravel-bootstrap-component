@@ -9,7 +9,7 @@ class Icon extends Component
 
     public function __construct(
         public string $name,
-        public bool $isInline = false
+        public bool   $isInline = false
     )
     {
     }
@@ -19,6 +19,6 @@ class Icon extends Component
      */
     public function render()
     {
-       return $this->view('bootstrap::components.icon');
+        return $this->view('bootstrap::components.icon');
     }
 }

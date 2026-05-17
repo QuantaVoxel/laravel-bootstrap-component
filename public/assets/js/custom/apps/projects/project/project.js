@@ -11,7 +11,7 @@ var KTProjectOverview = function () {
     var gray500 = KTUtil.getCssVariableValue('--bs-gray-500');
 
     // Private functions
-    var initChart = function () {        
+    var initChart = function () {
         // init chart
         var element = document.getElementById("project_overview_chart");
 
@@ -93,9 +93,7 @@ var KTProjectOverview = function () {
                     show: false
                 }
             },
-            plotOptions: {
-
-            },
+            plotOptions: {},
             legend: {
                 show: false
             },
@@ -311,6 +309,6 @@ var KTProjectOverview = function () {
 
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProjectOverview.init();
 });

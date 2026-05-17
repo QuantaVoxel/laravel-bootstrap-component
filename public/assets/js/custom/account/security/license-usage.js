@@ -3,26 +3,26 @@
 // Class definition
 var KTAccountSecurityLicenseUsage = function () {
     // Private functions
-    var initLicenceCopy = function() {
-        KTUtil.each(document.querySelectorAll('#kt_security_license_usage_table [data-action="copy"]'), function(button) {
+    var initLicenceCopy = function () {
+        KTUtil.each(document.querySelectorAll('#kt_security_license_usage_table [data-action="copy"]'), function (button) {
             var tr = button.closest('tr');
             var license = KTUtil.find(tr, '[data-bs-target="license"]');
 
             var clipboard = new ClipboardJS(button, {
                 target: license,
-                text: function() {
+                text: function () {
                     return license.innerHTML;
                 }
             });
-        
-            clipboard.on('success', function(e) {
+
+            clipboard.on('success', function (e) {
                 // Icons
-                var copyIcon = button.querySelector('.ki-copy');                
+                var copyIcon = button.querySelector('.ki-copy');
                 var checkIcon = button.querySelector('.ki-check');
-                
+
                 // exit if check icon is already shown
                 if (checkIcon) {
-                   return;  
+                    return;
                 }
 
                 // Create check icon
@@ -41,7 +41,7 @@ var KTAccountSecurityLicenseUsage = function () {
                 copyIcon.classList.add('d-none');
 
                 // Set 3 seconds timeout to hide the check icon and show copy icon back
-                setTimeout(function() {
+                setTimeout(function () {
                     // Remove check icon
                     copyIcon.classList.remove('d-none');
                     // Show check icon back
@@ -63,6 +63,6 @@ var KTAccountSecurityLicenseUsage = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTAccountSecurityLicenseUsage.init();
 });

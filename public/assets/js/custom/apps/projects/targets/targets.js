@@ -33,6 +33,6 @@ var KTProjectTargets = function () {
 
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProjectTargets.init();
 });

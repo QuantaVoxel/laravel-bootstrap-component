@@ -83,50 +83,50 @@ var KTModalUpdateAddress = function () {
             e.preventDefault();
 
             // Validate form before submit
-			if (validator) {
-				validator.validate().then(function (status) {
-					console.log('validated!');
+            if (validator) {
+                validator.validate().then(function (status) {
+                    console.log('validated!');
 
-					if (status == 'Valid') {
-						submitButton.setAttribute('data-kt-indicator', 'on');
+                    if (status == 'Valid') {
+                        submitButton.setAttribute('data-kt-indicator', 'on');
 
-						// Disable submit button whilst loading
-						submitButton.disabled = true;
+                        // Disable submit button whilst loading
+                        submitButton.disabled = true;
 
-						setTimeout(function() {
-							submitButton.removeAttribute('data-kt-indicator');
-							
-							Swal.fire({
-								text: "Form has been successfully submitted!",
-								icon: "success",
-								buttonsStyling: false,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn btn-primary"
-								}
-							}).then(function (result) {
-								if (result.isConfirmed) {
-									// Hide modal
-									modal.hide();
+                        setTimeout(function () {
+                            submitButton.removeAttribute('data-kt-indicator');
 
-									// Enable submit button after loading
-									submitButton.disabled = false;
-								}
-							});							
-						}, 2000);   						
-					} else {
-						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
-							icon: "error",
-							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
-							customClass: {
-								confirmButton: "btn btn-primary"
-							}
-						});
-					}
-				});
-			}
+                            Swal.fire({
+                                text: "Form has been successfully submitted!",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    // Hide modal
+                                    modal.hide();
+
+                                    // Enable submit button after loading
+                                    submitButton.disabled = false;
+                                }
+                            });
+                        }, 2000);
+                    } else {
+                        Swal.fire({
+                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                    }
+                });
+            }
         });
 
         cancelButton.addEventListener('click', function (e) {

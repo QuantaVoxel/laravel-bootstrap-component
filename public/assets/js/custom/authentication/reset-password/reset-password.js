@@ -177,7 +177,7 @@ var KTAuthResetPassword = function () {
         });
     }
 
-    var isValidUrl = function(url) {
+    var isValidUrl = function (url) {
         try {
             new URL(url);
             return true;

@@ -55,8 +55,8 @@ var KTUsersList = function () {
             "pageLength": 10,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)                
+                {orderable: false, targets: 0}, // Disable ordering on column 0 (checkbox)
+                {orderable: false, targets: 6}, // Disable ordering on column 6 (actions)
             ]
         });
 

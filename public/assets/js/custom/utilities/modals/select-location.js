@@ -11,7 +11,7 @@ var KTModalSelectLocation = function () {
     var mapInitialized = false;
 
     // Private functions
-    var initMap = function() {
+    var initMap = function () {
         // Check if Leaflet is included
         if (!L) {
             return;
@@ -56,7 +56,7 @@ var KTModalSelectLocation = function () {
                 }
                 markerLayer.clearLayers();
                 selectedlocation = result.address.Match_addr;
-                L.marker(result.latlng, { icon: leafletIcon }).addTo(markerLayer).bindPopup(result.address.Match_addr, { closeButton: false }).openPopup();
+                L.marker(result.latlng, {icon: leafletIcon}).addTo(markerLayer).bindPopup(result.address.Match_addr, {closeButton: false}).openPopup();
 
                 // Show popup confirmation. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                 Swal.fire({
@@ -74,8 +74,8 @@ var KTModalSelectLocation = function () {
         });
     }
 
-    var handleSelection = function() {
-        locationSelectButton.addEventListener('click', function() {
+    var handleSelection = function () {
+        locationSelectButton.addEventListener('click', function () {
             if (locationSelectTarget) {
                 if (locationSelectTarget.value) {
                     locationSelectTarget.value = selectedlocation;
@@ -90,28 +90,28 @@ var KTModalSelectLocation = function () {
     return {
         init: function () {
             // Elements
-			modal = document.querySelector('#kt_modal_select_location');
+            modal = document.querySelector('#kt_modal_select_location');
 
-			if (!modal) {
-				return;
-			}
-            
+            if (!modal) {
+                return;
+            }
+
             locationSelectTarget = document.querySelector('#kt_modal_select_location_target');
             locationSelectButton = document.querySelector('#kt_modal_select_location_button');
 
             handleSelection();
-            
+
             modal.addEventListener('shown.bs.modal', function () {
                 if (!mapInitialized) {
                     initMap();
                     mapInitialized = true;
-                }                
+                }
             });
         }
     }
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTModalSelectLocation.init();
 });

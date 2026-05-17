@@ -119,7 +119,7 @@ var KTUsersAddUser = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form			
-                    modal.hide();	
+                    modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -153,7 +153,7 @@ var KTUsersAddUser = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form			
-                    modal.hide();	
+                    modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

@@ -40,11 +40,11 @@ var KTFileManagerList = function () {
             "paging": false,
             'ordering': false,
             'columns': [
-                { data: 'checkbox' },
-                { data: 'name' },
-                { data: 'size' },
-                { data: 'date' },
-                { data: 'action' },
+                {data: 'checkbox'},
+                {data: 'name'},
+                {data: 'size'},
+                {data: 'date'},
+                {data: 'action'},
             ],
             'language': {
                 emptyTable: `<div class="d-flex flex-column flex-center">
@@ -62,11 +62,11 @@ var KTFileManagerList = function () {
             "lengthChange": false,
             'ordering': false,
             'columns': [
-                { data: 'checkbox' },
-                { data: 'name' },
-                { data: 'size' },
-                { data: 'date' },
-                { data: 'action' },
+                {data: 'checkbox'},
+                {data: 'name'},
+                {data: 'size'},
+                {data: 'date'},
+                {data: 'action'},
             ],
             'language': {
                 emptyTable: `<div class="d-flex flex-column flex-center">
@@ -453,7 +453,7 @@ var KTFileManagerList = function () {
 
     // Handle rename file or folder
     const handleRename = () => {
-        const renameButton = table.querySelectorAll('[data-kt-filemanager-table="rename"]');     
+        const renameButton = table.querySelectorAll('[data-kt-filemanager-table="rename"]');
 
         renameButton.forEach(button => {
             button.addEventListener('click', renameCallback);

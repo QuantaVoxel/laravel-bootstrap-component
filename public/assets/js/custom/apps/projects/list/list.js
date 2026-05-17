@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-var KTProjectList = function () {    
+var KTProjectList = function () {
     var initChart = function () {
         // init chart
         var element = document.getElementById("kt_project_list_chart");
@@ -57,7 +57,7 @@ var KTProjectList = function () {
                     legend: {
                         display: false
                     }
-                }                
+                }
             }
         };
 
@@ -74,6 +74,6 @@ var KTProjectList = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProjectList.init();
 });

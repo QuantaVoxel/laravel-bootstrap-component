@@ -88,7 +88,7 @@ var KTAppCalendar = function () {
                     endStr: arg.event.endStr,
                     allDay: arg.event.allDay
                 });
-                
+
                 handleViewEvent();
             },
 
@@ -230,7 +230,7 @@ var KTAppCalendar = function () {
             ],
 
             // Handle changing calendar views --- more info: https://fullcalendar.io/docs/datesSet
-            datesSet: function(){
+            datesSet: function () {
                 // do some stuff
             }
         });
@@ -388,8 +388,12 @@ var KTAppCalendar = function () {
 
                                     // Detect if is all day event
                                     let allDayEvent = false;
-                                    if (allDayToggle.checked) { allDayEvent = true; }
-                                    if (startTimeFlatpickr.selectedDates.length === 0) { allDayEvent = true; }
+                                    if (allDayToggle.checked) {
+                                        allDayEvent = true;
+                                    }
+                                    if (startTimeFlatpickr.selectedDates.length === 0) {
+                                        allDayEvent = true;
+                                    }
 
                                     // Merge date & time
                                     var startDateTime = moment(startFlatpickr.selectedDates[0]).format();
@@ -510,8 +514,12 @@ var KTAppCalendar = function () {
 
                                     // Detect if is all day event
                                     let allDayEvent = false;
-                                    if (allDayToggle.checked) { allDayEvent = true; }
-                                    if (startTimeFlatpickr.selectedDates.length === 0) { allDayEvent = true; }
+                                    if (allDayToggle.checked) {
+                                        allDayEvent = true;
+                                    }
+                                    if (startTimeFlatpickr.selectedDates.length === 0) {
+                                        allDayEvent = true;
+                                    }
 
                                     // Merge date & time
                                     var startDateTime = moment(startFlatpickr.selectedDates[0]).format();

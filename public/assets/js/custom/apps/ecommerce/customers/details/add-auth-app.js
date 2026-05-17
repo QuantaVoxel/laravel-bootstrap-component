@@ -28,7 +28,7 @@ var KTUsersAddAuthApp = function () {
             }).then(function (result) {
                 if (result.value) {
                     modal.hide(); // Hide modal				
-                } 
+                }
             });
         });
 
@@ -43,7 +43,7 @@ var KTUsersAddAuthApp = function () {
         const qrCodeLabel = element.querySelector('[ data-kt-add-auth-action="qr-code-label"]');
         const textCodeLabel = element.querySelector('[ data-kt-add-auth-action="text-code-label"]');
 
-        const toggleClass = () =>{
+        const toggleClass = () => {
             qrCode.classList.toggle('d-none');
             qrCodeButton.classList.toggle('d-none');
             qrCodeLabel.classList.toggle('d-none');
@@ -53,13 +53,13 @@ var KTUsersAddAuthApp = function () {
         }
 
         // Swap to text code handler
-        textCodeButton.addEventListener('click', e =>{
+        textCodeButton.addEventListener('click', e => {
             e.preventDefault();
 
             toggleClass();
         });
 
-        qrCodeButton.addEventListener('click', e =>{
+        qrCodeButton.addEventListener('click', e => {
             e.preventDefault();
 
             toggleClass();

@@ -20,7 +20,7 @@ var KTAppEcommerceSettings = function () {
             // Select form
             const form = document.getElementById(formId);
 
-            if(!form){
+            if (!form) {
                 return;
             }
 
@@ -146,7 +146,7 @@ var KTAppEcommerceSettings = function () {
     const initSelect2Flags = () => {
         // Format options
         const optionFormat = (item) => {
-            if ( !item.id ) {
+            if (!item.id) {
                 return item.text;
             }
 

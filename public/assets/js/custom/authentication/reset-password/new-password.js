@@ -1,14 +1,14 @@
 "use strict";
 
 // Class Definition
-var KTAuthNewPassword = function() {
+var KTAuthNewPassword = function () {
     // Elements
     var form;
     var submitButton;
     var validator;
     var passwordMeter;
 
-    var handleForm = function(e) {
+    var handleForm = function (e) {
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         validator = FormValidation.formValidation(
             form,
@@ -21,7 +21,7 @@ var KTAuthNewPassword = function() {
                             },
                             callback: {
                                 message: 'Please enter valid password',
-                                callback: function(input) {
+                                callback: function (input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
                                     }
@@ -35,7 +35,7 @@ var KTAuthNewPassword = function() {
                                 message: 'The password confirmation is required'
                             },
                             identical: {
-                                compare: function() {
+                                compare: function () {
                                     return form.querySelector('[name="password"]').value;
                                 },
                                 message: 'The password and its confirm are not the same'
@@ -65,7 +65,7 @@ var KTAuthNewPassword = function() {
             }
         );
 
-        form.querySelector('input[name="password"]').addEventListener('input', function() {
+        form.querySelector('input[name="password"]').addEventListener('input', function () {
             if (this.value.length > 0) {
                 validator.updateFieldStatus('password', 'NotValidated');
             }
@@ -79,7 +79,7 @@ var KTAuthNewPassword = function() {
 
             validator.revalidateField('password');
 
-            validator.validate().then(function(status) {
+            validator.validate().then(function (status) {
                 if (status == 'Valid') {
                     // Show loading indication
                     submitButton.setAttribute('data-kt-indicator', 'on');
@@ -88,7 +88,7 @@ var KTAuthNewPassword = function() {
                     submitButton.disabled = true;
 
                     // Simulate ajax request
-                    setTimeout(function() {
+                    setTimeout(function () {
                         // Hide loading indication
                         submitButton.removeAttribute('data-kt-indicator');
 
@@ -106,8 +106,8 @@ var KTAuthNewPassword = function() {
                             }
                         }).then(function (result) {
                             if (result.isConfirmed) {
-                                form.querySelector('[name="password"]').value= "";
-                                form.querySelector('[name="confirm-password"]').value= "";
+                                form.querySelector('[name="password"]').value = "";
+                                form.querySelector('[name="confirm-password"]').value = "";
                                 passwordMeter.reset();  // reset password meter
                                 //form.submit();
 
@@ -207,11 +207,11 @@ var KTAuthNewPassword = function() {
         });
     }
 
-    var validatePassword = function() {
-        return  (passwordMeter.getScore() > 50);
+    var validatePassword = function () {
+        return (passwordMeter.getScore() > 50);
     }
 
-    var isValidUrl = function(url) {
+    var isValidUrl = function (url) {
         try {
             new URL(url);
             return true;
@@ -223,7 +223,7 @@ var KTAuthNewPassword = function() {
     // Public Functions
     return {
         // public functions
-        init: function() {
+        init: function () {
             form = document.querySelector('#kt_new_password_form');
             submitButton = document.querySelector('#kt_new_password_submit');
             passwordMeter = KTPasswordMeter.getInstance(form.querySelector('[data-kt-password-meter="true"]'));
@@ -240,6 +240,6 @@ var KTAuthNewPassword = function() {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTAuthNewPassword.init();
 });

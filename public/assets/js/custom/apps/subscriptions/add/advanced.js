@@ -45,7 +45,7 @@ var KTSubscriptionsAdvanced = function () {
     }
 
     // Handle row index count
-    var initCustomFieldRowIndex = function() {
+    var initCustomFieldRowIndex = function () {
         const tableRows = table.querySelectorAll('tbody tr');
 
         tableRows.forEach((tr, index) => {
@@ -61,8 +61,8 @@ var KTSubscriptionsAdvanced = function () {
     }
 
     // Delete product
-    var deleteCustomField = function() {
-        KTUtil.on(table, '[data-kt-action="field_remove"]', 'click', function(e) {
+    var deleteCustomField = function () {
+        KTUtil.on(table, '[data-kt-action="field_remove"]', 'click', function (e) {
             e.preventDefault();
 
             // Select parent row
@@ -114,7 +114,7 @@ var KTSubscriptionsAdvanced = function () {
             table = document.getElementById('kt_create_new_custom_fields');
 
             initCustomFieldsDatatable();
-            initCustomFieldRowIndex();            
+            initCustomFieldRowIndex();
             deleteCustomField();
         }
     }

@@ -22,7 +22,7 @@ var KTModalTwoFactorAuthentication = function () {
     var appsValidator;
 
     // Private functions
-    var handleOptionsForm = function() {
+    var handleOptionsForm = function () {
         // Handle options selection
         optionsSelectButton.addEventListener('click', function (e) {
             e.preventDefault();
@@ -38,93 +38,93 @@ var KTModalTwoFactorAuthentication = function () {
         });
     }
 
-	var showOptionsForm = function() {
-		optionsWrapper.classList.remove('d-none');
-		smsWrapper.classList.add('d-none');
-		appsWrapper.classList.add('d-none');
+    var showOptionsForm = function () {
+        optionsWrapper.classList.remove('d-none');
+        smsWrapper.classList.add('d-none');
+        appsWrapper.classList.add('d-none');
     }
 
-    var handleSMSForm = function() {
+    var handleSMSForm = function () {
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
-		smsValidator = FormValidation.formValidation(
-			smsForm,
-			{
-				fields: {
-					'mobile': {
-						validators: {
-							notEmpty: {
-								message: 'Mobile no is required'
-							}
-						}
-					}
-				},
-				plugins: {
-					trigger: new FormValidation.plugins.Trigger(),
-					bootstrap: new FormValidation.plugins.Bootstrap5({
-						rowSelector: '.fv-row',
+        smsValidator = FormValidation.formValidation(
+            smsForm,
+            {
+                fields: {
+                    'mobile': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Mobile no is required'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
                         eleInvalidClass: '',
                         eleValidClass: ''
-					})
-				}
-			}
-		);
+                    })
+                }
+            }
+        );
 
         // Handle apps submition
         smsSubmitButton.addEventListener('click', function (e) {
             e.preventDefault();
 
-			// Validate form before submit
-			if (smsValidator) {
-				smsValidator.validate().then(function (status) {
-					console.log('validated!');
+            // Validate form before submit
+            if (smsValidator) {
+                smsValidator.validate().then(function (status) {
+                    console.log('validated!');
 
-					if (status == 'Valid') {
-						// Show loading indication
-						smsSubmitButton.setAttribute('data-kt-indicator', 'on');
+                    if (status == 'Valid') {
+                        // Show loading indication
+                        smsSubmitButton.setAttribute('data-kt-indicator', 'on');
 
-						// Disable button to avoid multiple click 
-						smsSubmitButton.disabled = true;						
+                        // Disable button to avoid multiple click
+                        smsSubmitButton.disabled = true;
 
-						// Simulate ajax process
-						setTimeout(function() {
-							// Remove loading indication
-							smsSubmitButton.removeAttribute('data-kt-indicator');
+                        // Simulate ajax process
+                        setTimeout(function () {
+                            // Remove loading indication
+                            smsSubmitButton.removeAttribute('data-kt-indicator');
 
-							// Enable button
-							smsSubmitButton.disabled = false;
-							
-							// Show success message. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-							Swal.fire({
-								text: "Mobile number has been successfully submitted!",
-								icon: "success",
-								buttonsStyling: false,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn btn-primary"
-								}
-							}).then(function (result) {
-								if (result.isConfirmed) {
-									modalObject.hide();
-									showOptionsForm();
-								}
-							});
+                            // Enable button
+                            smsSubmitButton.disabled = false;
 
-							//smsForm.submit(); // Submit form
-						}, 2000);   						
-					} else {
-						// Show error message.
-						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
-							icon: "error",
-							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
-							customClass: {
-								confirmButton: "btn btn-primary"
-							}
-						});
-					}
-				});
-			}
+                            // Show success message. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+                            Swal.fire({
+                                text: "Mobile number has been successfully submitted!",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    modalObject.hide();
+                                    showOptionsForm();
+                                }
+                            });
+
+                            //smsForm.submit(); // Submit form
+                        }, 2000);
+                    } else {
+                        // Show error message.
+                        Swal.fire({
+                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                    }
+                });
+            }
         });
 
         // Handle sms cancelation
@@ -137,84 +137,84 @@ var KTModalTwoFactorAuthentication = function () {
         });
     }
 
-    var handleAppsForm = function() {
-		// Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
-		appsValidator = FormValidation.formValidation(
-			appsForm,
-			{
-				fields: {
-					'code': {
-						validators: {
-							notEmpty: {
-								message: 'Code is required'
-							}
-						}
-					}
-				},
-				plugins: {
-					trigger: new FormValidation.plugins.Trigger(),
-					bootstrap: new FormValidation.plugins.Bootstrap5({
-						rowSelector: '.fv-row',
+    var handleAppsForm = function () {
+        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
+        appsValidator = FormValidation.formValidation(
+            appsForm,
+            {
+                fields: {
+                    'code': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Code is required'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
                         eleInvalidClass: '',
                         eleValidClass: ''
-					})
-				}
-			}
-		);
+                    })
+                }
+            }
+        );
 
         // Handle apps submition
         appsSubmitButton.addEventListener('click', function (e) {
             e.preventDefault();
 
-			// Validate form before submit
-			if (appsValidator) {
-				appsValidator.validate().then(function (status) {
-					console.log('validated!');
+            // Validate form before submit
+            if (appsValidator) {
+                appsValidator.validate().then(function (status) {
+                    console.log('validated!');
 
-					if (status == 'Valid') {
-						appsSubmitButton.setAttribute('data-kt-indicator', 'on');
+                    if (status == 'Valid') {
+                        appsSubmitButton.setAttribute('data-kt-indicator', 'on');
 
-						// Disable button to avoid multiple click 
-						appsSubmitButton.disabled = true;
+                        // Disable button to avoid multiple click
+                        appsSubmitButton.disabled = true;
 
-						setTimeout(function() {
-							appsSubmitButton.removeAttribute('data-kt-indicator');
+                        setTimeout(function () {
+                            appsSubmitButton.removeAttribute('data-kt-indicator');
 
-							// Enable button
-							appsSubmitButton.disabled = false;
-							
-							// Show success message.
-							Swal.fire({
-								text: "Code has been successfully submitted!",
-								icon: "success",
-								buttonsStyling: false,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn btn-primary"
-								}
-							}).then(function (result) {
-								if (result.isConfirmed) {
-									modalObject.hide();
-									showOptionsForm();
-								}
-							});
+                            // Enable button
+                            appsSubmitButton.disabled = false;
 
-							//appsForm.submit(); // Submit form
-						}, 2000);   						
-					} else {
-						// Show error message.
-						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
-							icon: "error",
-							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
-							customClass: {
-								confirmButton: "btn btn-primary"
-							}
-						});
-					}
-				});
-			}
+                            // Show success message.
+                            Swal.fire({
+                                text: "Code has been successfully submitted!",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    modalObject.hide();
+                                    showOptionsForm();
+                                }
+                            });
+
+                            //appsForm.submit(); // Submit form
+                        }, 2000);
+                    } else {
+                        // Show error message.
+                        Swal.fire({
+                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                    }
+                });
+            }
         });
 
         // Handle apps cancelation
@@ -233,9 +233,9 @@ var KTModalTwoFactorAuthentication = function () {
             // Elements
             modal = document.querySelector('#kt_modal_two_factor_authentication');
 
-			if (!modal) {
-				return;
-			}
+            if (!modal) {
+                return;
+            }
 
             modalObject = new bootstrap.Modal(modal);
 
@@ -261,6 +261,6 @@ var KTModalTwoFactorAuthentication = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTModalTwoFactorAuthentication.init();
 });

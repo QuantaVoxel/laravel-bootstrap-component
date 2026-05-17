@@ -26,7 +26,7 @@ var KTCustomerViewInvoices = function () {
             "pageLength": 5,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 4 }, // Disable ordering on column 0 (download)
+                {orderable: false, targets: 4}, // Disable ordering on column 0 (download)
             ]
         });
     }
@@ -53,7 +53,7 @@ var KTCustomerViewInvoices = function () {
             "pageLength": 5,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 4 }, // Disable ordering on column 0 (download)
+                {orderable: false, targets: 4}, // Disable ordering on column 0 (download)
             ]
         });
     }
@@ -80,7 +80,7 @@ var KTCustomerViewInvoices = function () {
             "pageLength": 5,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 4 }, // Disable ordering on column 0 (download)
+                {orderable: false, targets: 4}, // Disable ordering on column 0 (download)
             ]
         });
     }
@@ -107,7 +107,7 @@ var KTCustomerViewInvoices = function () {
             "pageLength": 5,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 4 }, // Disable ordering on column 0 (download)
+                {orderable: false, targets: 4}, // Disable ordering on column 0 (download)
             ]
         });
     }

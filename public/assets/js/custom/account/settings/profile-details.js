@@ -85,17 +85,17 @@ var KTAccountSettingsProfileDetails = function () {
         );
 
         // Select2 validation integration
-        $(form.querySelector('[name="country"]')).on('change', function() {
+        $(form.querySelector('[name="country"]')).on('change', function () {
             // Revalidate the color field when an option is chosen
             validation.revalidateField('country');
         });
 
-        $(form.querySelector('[name="language"]')).on('change', function() {
+        $(form.querySelector('[name="language"]')).on('change', function () {
             // Revalidate the color field when an option is chosen
             validation.revalidateField('language');
         });
 
-        $(form.querySelector('[name="timezone"]')).on('change', function() {
+        $(form.querySelector('[name="timezone"]')).on('change', function () {
             // Revalidate the color field when an option is chosen
             validation.revalidateField('timezone');
         });
@@ -137,7 +137,7 @@ var KTAccountSettingsProfileDetails = function () {
     return {
         init: function () {
             form = document.getElementById('kt_account_profile_details_form');
-            
+
             if (!form) {
                 return;
             }
@@ -150,6 +150,6 @@ var KTAccountSettingsProfileDetails = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTAccountSettingsProfileDetails.init();
 });

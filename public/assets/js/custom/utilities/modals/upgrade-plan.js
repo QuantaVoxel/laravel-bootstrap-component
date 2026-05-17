@@ -4,27 +4,27 @@
 var KTModalUpgradePlan = function () {
     // Private variables
     var modal;
-	var planPeriodMonthButton;
-	var planPeriodAnnualButton;
+    var planPeriodMonthButton;
+    var planPeriodAnnualButton;
     var planUpgradeButton;
 
     // Private functions
-	var changePlanPrices = function(type) {
-		var items = [].slice.call(modal.querySelectorAll('[data-kt-plan-price-month]'));
+    var changePlanPrices = function (type) {
+        var items = [].slice.call(modal.querySelectorAll('[data-kt-plan-price-month]'));
 
-		items.map(function (item) {
-			var monthPrice = item.getAttribute('data-kt-plan-price-month');
-			var annualPrice = item.getAttribute('data-kt-plan-price-annual');
+        items.map(function (item) {
+            var monthPrice = item.getAttribute('data-kt-plan-price-month');
+            var annualPrice = item.getAttribute('data-kt-plan-price-annual');
 
-			if ( type === 'month' ) {
-				item.innerHTML = monthPrice;
-			} else if ( type === 'annual' ) {
-				item.innerHTML = annualPrice;
-			}
-		});
-	}
+            if (type === 'month') {
+                item.innerHTML = monthPrice;
+            } else if (type === 'annual') {
+                item.innerHTML = annualPrice;
+            }
+        });
+    }
 
-    var handlePlanPeriodSelection = function() {
+    var handlePlanPeriodSelection = function () {
         // Handle period change
         planPeriodMonthButton.addEventListener('click', function (e) {
             e.preventDefault();
@@ -35,18 +35,18 @@ var KTModalUpgradePlan = function () {
             changePlanPrices('month');
         });
 
-		planPeriodAnnualButton.addEventListener('click', function (e) {
+        planPeriodAnnualButton.addEventListener('click', function (e) {
             e.preventDefault();
 
             planPeriodMonthButton.classList.remove('active');
             planPeriodAnnualButton.classList.add('active');
-            
+
             changePlanPrices('annual');
         });
     }
-    
+
     var handlePlanUpgrade = function () {
-        if ( !planUpgradeButton ) {
+        if (!planUpgradeButton) {
             return;
         }
 
@@ -68,12 +68,12 @@ var KTModalUpgradePlan = function () {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    el.setAttribute('data-kt-indicator', 'on');            
+                    el.setAttribute('data-kt-indicator', 'on');
                     el.disabled = true;
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         Swal.fire({
-                            text: 'Your subscription plan has been successfully upgraded', 
+                            text: 'Your subscription plan has been successfully upgraded',
                             icon: 'success',
                             confirmButtonText: "Ok",
                             buttonsStyling: false,
@@ -85,8 +85,8 @@ var KTModalUpgradePlan = function () {
                         })
 
                     }, 2000);
-                } 
-            });            
+                }
+            });
         });
     }
 
@@ -97,11 +97,11 @@ var KTModalUpgradePlan = function () {
             modal = document.querySelector('#kt_modal_upgrade_plan');
 
             if (!modal) {
-				return;
-			}
+                return;
+            }
 
-			planPeriodMonthButton = modal.querySelector('[data-kt-plan="month"]');
-			planPeriodAnnualButton = modal.querySelector('[data-kt-plan="annual"]');
+            planPeriodMonthButton = modal.querySelector('[data-kt-plan="month"]');
+            planPeriodAnnualButton = modal.querySelector('[data-kt-plan="annual"]');
             planUpgradeButton = document.querySelector('#kt_modal_upgrade_plan_btn');
 
             // Handlers
@@ -113,6 +113,6 @@ var KTModalUpgradePlan = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTModalUpgradePlan.init();
 });

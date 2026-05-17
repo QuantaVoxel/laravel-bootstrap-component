@@ -4,9 +4,9 @@
 var KTAppFileManagerSettings = function () {
     var form;
 
-	// Private functions
-	var handleForm = function() {
-		const saveButton = form.querySelector('#kt_file_manager_settings_submit');
+    // Private functions
+    var handleForm = function () {
+        const saveButton = form.querySelector('#kt_file_manager_settings_submit');
 
         saveButton.addEventListener('click', e => {
             e.preventDefault();
@@ -14,7 +14,7 @@ var KTAppFileManagerSettings = function () {
             saveButton.setAttribute("data-kt-indicator", "on");
 
             // Simulate process for demo only
-            setTimeout(function(){
+            setTimeout(function () {
                 toastr.options = {
                     "closeButton": true,
                     "debug": false,
@@ -37,16 +37,16 @@ var KTAppFileManagerSettings = function () {
                 saveButton.removeAttribute("data-kt-indicator");
             }, 1000);
         });
-	}
+    }
 
-	// Public methods
-	return {
-		init: function(element) {
+    // Public methods
+    return {
+        init: function (element) {
             form = document.querySelector('#kt_file_manager_settings');
 
-			handleForm();
+            handleForm();
         }
-	};
+    };
 }();
 
 // On document ready

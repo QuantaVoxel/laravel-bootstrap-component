@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-var KTModalCustomerSelect = function() {
+var KTModalCustomerSelect = function () {
     // Private variables
     var element;
     var suggestionsElement;
@@ -9,12 +9,12 @@ var KTModalCustomerSelect = function() {
     var wrapperElement;
     var emptyElement;
     var searchObject;
-    
+
     var modal;
 
     // Private functions
-    var processs = function(search) {
-        var timeout = setTimeout(function() {
+    var processs = function (search) {
+        var timeout = setTimeout(function () {
             var number = KTUtil.getRandomInt(1, 6);
 
             // Hide recently viewed
@@ -30,25 +30,25 @@ var KTModalCustomerSelect = function() {
                 resultsElement.classList.remove('d-none');
                 // Hide empty message 
                 emptyElement.classList.add('d-none');
-            }                  
+            }
 
             // Complete search
             search.complete();
         }, 1500);
     }
 
-    var clear = function(search) {
+    var clear = function (search) {
         // Show recently viewed
         suggestionsElement.classList.remove('d-none');
         // Hide results
         resultsElement.classList.add('d-none');
         // Hide empty message 
         emptyElement.classList.add('d-none');
-    }    
+    }
 
     // Public methods
-	return {
-		init: function() {
+    return {
+        init: function () {
             // Elements
             element = document.querySelector('#kt_modal_customer_search_handler');
             modal = new bootstrap.Modal(document.querySelector('#kt_modal_customer_search'));
@@ -61,7 +61,7 @@ var KTModalCustomerSelect = function() {
             suggestionsElement = element.querySelector('[data-kt-search-element="suggestions"]');
             resultsElement = element.querySelector('[data-kt-search-element="results"]');
             emptyElement = element.querySelector('[data-kt-search-element="empty"]');
-            
+
             // Initialize search handler
             searchObject = new KTSearch(element);
 
@@ -72,11 +72,11 @@ var KTModalCustomerSelect = function() {
             searchObject.on('kt.search.clear', clear);
 
             // Handle select
-            KTUtil.on(element, '[data-kt-search-element="customer"]', 'click', function() {
+            KTUtil.on(element, '[data-kt-search-element="customer"]', 'click', function () {
                 modal.hide();
             });
-		}
-	};
+        }
+    };
 }();
 
 // On document ready

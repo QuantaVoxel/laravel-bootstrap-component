@@ -99,6 +99,6 @@ var KTProjectSettings = function () {
 
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProjectSettings.init();
 });

@@ -9,7 +9,7 @@ class Alert extends Component
     public string $type;
 
     public string $message;
-    public  string $color;
+    public string $color;
 
     public function __construct(string $type = 'info', string $message = '')
     {
@@ -25,6 +25,7 @@ class Alert extends Component
         };
 
     }
+
     public function render()
     {
         return view('bootstrap::components.alert');

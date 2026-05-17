@@ -118,8 +118,8 @@ var KTAppContactEdit = function () {
     // Init Select2 with flags
     const initSelect2Flags = () => {
         // Format options
-        var optionFormat = function(item) {
-            if ( !item.id ) {
+        var optionFormat = function (item) {
+            if (!item.id) {
                 return item.text;
             }
 

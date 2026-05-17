@@ -21,13 +21,13 @@ var KTProfileGeneral = function () {
 
             // Disable button to avoid multiple click 
             showMoreButton.disabled = true;
-            
-            setTimeout(function() {
+
+            setTimeout(function () {
                 // Hide loading indication
                 showMoreButton.removeAttribute('data-kt-indicator');
 
                 // Enable button
-				showMoreButton.disabled = false;
+                showMoreButton.disabled = false;
 
                 // Hide button
                 showMoreButton.classList.add('d-none');
@@ -42,46 +42,46 @@ var KTProfileGeneral = function () {
     }
 
     // Follow button
-    var handleUFollow = function() {
+    var handleUFollow = function () {
         if (!followBtn) {
             return;
         }
 
-        followBtn.addEventListener('click', function(e){
+        followBtn.addEventListener('click', function (e) {
             // Prevent default action 
             e.preventDefault();
-            
+
             // Show indicator
             followBtn.setAttribute('data-kt-indicator', 'on');
-            
+
             // Disable button to avoid multiple click 
             followBtn.disabled = true;
 
             // Check button state
             if (followBtn.classList.contains("btn-success")) {
-                    setTimeout(function() {
+                setTimeout(function () {
                     followBtn.removeAttribute('data-kt-indicator');
                     followBtn.classList.remove("btn-success");
                     followBtn.classList.add("btn-light");
                     followBtn.querySelector("i").classList.add("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Follow';
                     followBtn.disabled = false;
-                }, 1500);   
+                }, 1500);
             } else {
-                    setTimeout(function() {
+                setTimeout(function () {
                     followBtn.removeAttribute('data-kt-indicator');
                     followBtn.classList.add("btn-success");
                     followBtn.classList.remove("btn-light");
                     followBtn.querySelector("i").classList.remove("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Following';
                     followBtn.disabled = false;
-                }, 1000);   
-            }        
-        });        
+                }, 1000);
+            }
+        });
     }
 
-    var handleFollowers = function() {
-        KTUtil.on(document.body,  '[data-kt-follow-btn="true"]', 'click', function(e) {
+    var handleFollowers = function () {
+        KTUtil.on(document.body, '[data-kt-follow-btn="true"]', 'click', function (e) {
             e.preventDefault();
 
             var el = this;
@@ -89,14 +89,14 @@ var KTProfileGeneral = function () {
             var following = el.querySelector(".following");
             var follow = el.querySelector(".follow");
 
-            el.setAttribute('data-kt-indicator', 'on');            
+            el.setAttribute('data-kt-indicator', 'on');
             el.disabled = true;
             follow.classList.add("d-none");
             following.classList.add("d-none")
 
-            setTimeout(function() {
+            setTimeout(function () {
                 el.removeAttribute('data-kt-indicator');
-				el.disabled = false;
+                el.disabled = false;
 
                 if (el.classList.contains("btn-light-primary")) { // following
                     el.classList.remove("btn-light-primary");
@@ -117,18 +117,18 @@ var KTProfileGeneral = function () {
         });
     }
 
-    var handlePageScroll = function() {
-        if ( profileNav  && profileNav.getAttribute("data-kt-sticky") && KTUtil.isBreakpointUp('lg')) {
-            
-            if ( localStorage.getItem('nav-initialized') === "1") {
+    var handlePageScroll = function () {
+        if (profileNav && profileNav.getAttribute("data-kt-sticky") && KTUtil.isBreakpointUp('lg')) {
+
+            if (localStorage.getItem('nav-initialized') === "1") {
                 window.scroll({
                     top: parseInt(profileNav.getAttribute("data-kt-page-scroll-position")),
                     behavior: 'smooth'
                 });
             }
-    
-            localStorage.setItem('nav-initialized', "1");        
-        }        
+
+            localStorage.setItem('nav-initialized', "1");
+        }
     }
 
     // Public methods
@@ -148,6 +148,6 @@ var KTProfileGeneral = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProfileGeneral.init();
 });

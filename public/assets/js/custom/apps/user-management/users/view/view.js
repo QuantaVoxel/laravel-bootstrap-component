@@ -79,7 +79,7 @@ var KTUsersViewMain = function () {
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }
-                        }).then(function(){
+                        }).then(function () {
                             button.closest('tr').remove();
                         });
                     } else if (result.dismiss === 'cancel') {

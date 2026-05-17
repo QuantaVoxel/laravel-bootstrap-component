@@ -3,7 +3,7 @@
 // Class definition
 var KTModalShareEarn = function () {
     // Private functions
-    var handleForm = function() {
+    var handleForm = function () {
         var button = document.querySelector('#kt_share_earn_link_copy_button');
         var input = document.querySelector('#kt_share_earn_link_input');
         var clipboard = new ClipboardJS(button);
@@ -13,7 +13,7 @@ var KTModalShareEarn = function () {
         }
 
         //  Copy text to clipboard. For more info check the plugin's documentation: https://clipboardjs.com/
-        clipboard.on('success', function(e) {
+        clipboard.on('success', function (e) {
             var buttonCaption = button.innerHTML;
             //Add bgcolor
             input.classList.add('bg-success');
@@ -21,12 +21,12 @@ var KTModalShareEarn = function () {
 
             button.innerHTML = 'Copied!';
 
-            setTimeout(function() {
+            setTimeout(function () {
                 button.innerHTML = buttonCaption;
 
                 // Remove bgcolor
-                input.classList.remove('bg-success'); 
-                input.classList.remove('text-inverse-success'); 
+                input.classList.remove('bg-success');
+                input.classList.remove('text-inverse-success');
             }, 3000);  // 3seconds
 
             e.clearSelection();
@@ -42,6 +42,6 @@ var KTModalShareEarn = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTModalShareEarn.init();
 });

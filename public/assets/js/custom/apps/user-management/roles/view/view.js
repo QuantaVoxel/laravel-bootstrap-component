@@ -17,17 +17,17 @@ var KTUsersViewRole = function () {
             dateRow[3].setAttribute('data-order', realDate);
         });
 
-         // Init datatable --- more info on datatables: https://datatables.net/manual/
-         datatable = $(table).DataTable({
+        // Init datatable --- more info on datatables: https://datatables.net/manual/
+        datatable = $(table).DataTable({
             "info": false,
             'order': [],
             "pageLength": 5,
             "lengthChange": false,
             'columnDefs': [
-                { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 4 }, // Disable ordering on column 4 (actions)
+                {orderable: false, targets: 0}, // Disable ordering on column 0 (checkbox)
+                {orderable: false, targets: 4}, // Disable ordering on column 4 (actions)
             ]
-        });        
+        });
     }
 
     // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
@@ -150,7 +150,7 @@ var KTUsersViewRole = function () {
                         // Remove header checked box
                         const headerCheckbox = table.querySelectorAll('[type="checkbox"]')[0];
                         headerCheckbox.checked = false;
-                    }).then(function(){
+                    }).then(function () {
                         toggleToolbars(); // Detect checked checkboxes
                         initToggleToolbar(); // Re-init toolbar to recalculate checkboxes
                     });
@@ -206,7 +206,7 @@ var KTUsersViewRole = function () {
         // Public functions
         init: function () {
             table = document.querySelector('#kt_roles_view_table');
-            
+
             if (!table) {
                 return;
             }

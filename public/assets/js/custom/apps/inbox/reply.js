@@ -15,7 +15,7 @@ var KTAppInboxReply = function () {
             const message = accordion.querySelector('[data-kt-inbox-message="message"]');
 
             // Init bootstrap collapse -- more info: https://getbootstrap.com/docs/5.1/components/collapse/#via-javascript
-            const collapse = new bootstrap.Collapse(message, { toggle: false });
+            const collapse = new bootstrap.Collapse(message, {toggle: false});
 
             // Handle header click action
             header.addEventListener('click', e => {
@@ -119,14 +119,14 @@ var KTAppInboxReply = function () {
         var inputElm = el;
 
         const usersList = [
-            { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg', email: 'e.smith@kpmg.com.au' },
-            { value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg', email: 'max@kt.com' },
-            { value: 3, name: 'Sean Bean', avatar: 'avatars/300-5.jpg', email: 'sean@dellito.com' },
-            { value: 4, name: 'Brian Cox', avatar: 'avatars/300-25.jpg', email: 'brian@exchange.com' },
-            { value: 5, name: 'Francis Mitcham', avatar: 'avatars/300-9.jpg', email: 'f.mitcham@kpmg.com.au' },
-            { value: 6, name: 'Dan Wilson', avatar: 'avatars/300-23.jpg', email: 'dam@consilting.com' },
-            { value: 7, name: 'Ana Crown', avatar: 'avatars/300-12.jpg', email: 'ana.cf@limtel.com' },
-            { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg', email: 'miller@mapple.com' }
+            {value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg', email: 'e.smith@kpmg.com.au'},
+            {value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg', email: 'max@kt.com'},
+            {value: 3, name: 'Sean Bean', avatar: 'avatars/300-5.jpg', email: 'sean@dellito.com'},
+            {value: 4, name: 'Brian Cox', avatar: 'avatars/300-25.jpg', email: 'brian@exchange.com'},
+            {value: 5, name: 'Francis Mitcham', avatar: 'avatars/300-9.jpg', email: 'f.mitcham@kpmg.com.au'},
+            {value: 6, name: 'Dan Wilson', avatar: 'avatars/300-23.jpg', email: 'dam@consilting.com'},
+            {value: 7, name: 'Ana Crown', avatar: 'avatars/300-12.jpg', email: 'ana.cf@limtel.com'},
+            {value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg', email: 'miller@mapple.com'}
         ];
 
         function tagTemplate(tagData) {
@@ -159,7 +159,7 @@ var KTAppInboxReply = function () {
                             <div class='tagify__dropdown__item__avatar-wrap me-2'>
                                 <img onerror="this.style.visibility='hidden'"  class="rounded-circle w-50px me-2" src="${hostUrl}media/${tagData.avatar}">
                             </div>` : ''
-                }
+            }
 
                     <div class="d-flex flex-column">
                         <strong>${tagData.name}</strong>
@@ -212,12 +212,12 @@ var KTAppInboxReply = function () {
         function getAddAllSuggestionsElm() {
             // suggestions items should be based on "dropdownItem" template
             return tagify.parseTemplate('dropdownItem', [{
-                class: "addAll",
-                name: "Add all",
-                email: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
-                    return tagify.isTagDuplicate(item.value) ? remainingSuggestions : remainingSuggestions + 1
-                }, 0) + " Members"
-            }]
+                    class: "addAll",
+                    name: "Add all",
+                    email: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
+                        return tagify.isTagDuplicate(item.value) ? remainingSuggestions : remainingSuggestions + 1
+                    }, 0) + " Members"
+                }]
             )
         }
     }

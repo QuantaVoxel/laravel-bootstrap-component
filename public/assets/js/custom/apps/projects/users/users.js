@@ -10,9 +10,9 @@ var KTProjectUsers = function () {
         if (!table) {
             return;
         }
-        
+
         const tableRows = table.querySelectorAll('tbody tr');
-        
+
         tableRows.forEach(row => {
             const dateRow = row.querySelectorAll('td');
             const realDate = moment(dateRow[1].innerHTML, "MMM D, YYYY").format();
@@ -35,7 +35,7 @@ var KTProjectUsers = function () {
             filterSearch.addEventListener('keyup', function (e) {
                 datatable.search(e.target.value).draw();
             });
-        }        
+        }
     }
 
     // Public methods
@@ -47,6 +47,6 @@ var KTProjectUsers = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function() {
+KTUtil.onDOMContentLoaded(function () {
     KTProjectUsers.init();
 });

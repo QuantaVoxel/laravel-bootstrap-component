@@ -299,7 +299,7 @@ var KTUsersAddTask = function () {
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
-                            }).then(function(){
+                            }).then(function () {
                                 //el.show();
                             });
                         }

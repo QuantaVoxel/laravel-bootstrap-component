@@ -54,7 +54,7 @@ var KTUsersAddPermission = function () {
             }).then(function (result) {
                 if (result.value) {
                     modal.hide(); // Hide modal				
-                } 
+                }
             });
         });
 
