@@ -24,20 +24,20 @@ final class BootstrapComponentServiceProvider extends ServiceProvider
             return <<<ECHO
 <link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/style.css')}}" >
 ECHO;
-
         });
+
         Blade::directive('bootstrapComponentScript', function () {
             return <<<ECHO
 <script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/icon.js')}}" ></script>
+<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/bootstrap.bundle.js')}}" ></script>
 ECHO;
-
         });
 
 
         if ($this->app->runningInConsole()) {
-
             $this->publishes([
                 __DIR__ . '/../public/build' => public_path('vendor/quantavoxel/bootstrap-component'),
+                __DIR__ . '/../public/bootstrap' => public_path('vendor/quantavoxel/bootstrap-component/assets'),
             ]);
         }
     }
