@@ -6,5 +6,8 @@
 * **Pre-compiled Assets & Zero Config:** All required CSS and JS bundles are baked directly into the package. Your main application is completely liberated from complex build tool configurations (Vite/Webpack).
 * **Scalable Blade UI Components:** Rapidly build interface structures (navbars, sidebars, modals, alerts) utilizing standard, clean Laravel HTML syntax tags (`<x-bootstrap::... />`).
 * **Universal Icon Integration Engine:** Powered by a flexible integration design. This package is completely future-proof—built to dynamically support thousands of icon sets (Solar Icons, Lucide, FontAwesome, Remix Icons, etc.) via a unified API, preventing vendor lock-in.
-* **On-Demand Asset Loading (`@once`):** Smart script injection ensures that icon and helper scripts are loaded only once per page request, maintaining optimal Google Core Web Vitals (LCP/FID) scores for high SEO performance.
 * **Developer-Centric Extensibility:** Easily customize, swap, or extend icon sets and global styles using a dedicated, publishable configuration file.
+
+``` 
+php artisan vendor:publish --provider="Quantavoxel\LaravelBootstrapComponent\BootstrapComponentServiceProvider" 
+```

@@ -10,14 +10,13 @@ final class BootstrapComponentServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component.php', 'bootstrap-component');
-        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component-sidebar.php', 'bootstrap-component-sidebar');
-        $this->mergeConfigFrom(__DIR__ . '/../config/bootstrap-component-header.php', 'bootstrap-component-header');
+
     }
 
 
     public function boot(): void
     {
+
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'bootstrap');
 
         $this->bladeConfigure();

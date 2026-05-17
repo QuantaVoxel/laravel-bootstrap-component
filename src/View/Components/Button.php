@@ -19,6 +19,15 @@ class Button extends Component
         public bool    $iconOnly = false,
         public ?string $size = null,
         public bool    $flex = false,
+
+        public bool $withBadge = false,
+        public string $badgeColor = 'primary',
+        public string $badgeText = '',
+        public string $badgePosition = 'top-right',
+        public bool $badgeOutline = false,
+        public bool $badgeLight = false,
+        public ?string $badgeShape = 'circle',
+        public string $badgeSize = 'md',
     )
     {
     }
@@ -26,6 +35,14 @@ class Button extends Component
     public
     function render()
     {
+        $badgeClass = match ($this->badgePosition) {
+            'top-right' => 'position-absolute top-0 start-100 translate-middle',
+            'top-left' => 'position-absolute top-0 start-0 translate-middle',
+            'bottom-right' => 'position-absolute top-0 start-100 translate-middle',
+            'bottom-left' => 'position-absolute top-100 start-0 translate-middle',
+            default => 'position-absolute top-0 start-0 translate-middle',
+        };
+
         return view('bootstrap::components.button', [
             'class' => [
                 "btn",
@@ -37,7 +54,9 @@ class Button extends Component
                 "btn-outline-{$this->color}" => $this->outline,
                 "btn-outline-{$this->outlineType}" => $this->outline,
                 "btn-icon" => $this->iconOnly,
-            ]
+                "position-relative" => $this->withBadge,
+            ],
+            'badgeClass' => $badgeClass,
         ]);
     }
 }

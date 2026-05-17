@@ -60,7 +60,7 @@
             <x-bootstrap::dashboard-sidebar/>
 
             <div class="app-main flex-column flex-row-fluid " id="kt_app_main">
-                <div class="d-flex flex-column flex-column-fluid">
+                <div class="d-flex flex-column flex-column-fluid px-2">
                     {{ $slot }}
                 </div>
                 @isset($footer)
