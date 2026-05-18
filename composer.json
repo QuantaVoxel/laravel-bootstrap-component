@@ -29,7 +29,10 @@
   "autoload": {
     "psr-4": {
       "Quantavoxel\\LaravelBootstrapComponent\\": "src/"
-    }
+    },
+    "files": [
+      "src/Helper/funcion.php"
+    ]
   },
   "require": {
     "php": "^8.4",
