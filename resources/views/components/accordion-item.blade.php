@@ -13,8 +13,8 @@
                 <x-bootstrap::icon :name="$openIcon" class="fs-3 accordion-icon-off"/>
                 <x-bootstrap::icon :name="$closeIcon" class="fs-3 accordion-icon-on"/>
             </span>
-            <h3 class="fs-4 fw-semibold mb-0 ms-4">The best way to quick start business</h3>
-        @else
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">{{ $title }}</h3>
+@else
             <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#{{ $itemId }}" aria-expanded="false" aria-controls="{{ $itemId }}">
                 {{ $title }}

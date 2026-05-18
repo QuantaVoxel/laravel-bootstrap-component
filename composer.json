@@ -1,5 +1,6 @@
 {
   "name": "quantavoxel/laravel-bootstrap-component",
+  "version": "1.0.0",
   "type": "library",
   "description": "A lightweight Laravel package offering reusable Bootstrap 5 Blade components, optimized asset bundling, and a highly flexible, universal icon integration system.",
   "keywords": [
