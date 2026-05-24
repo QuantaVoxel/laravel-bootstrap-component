@@ -3,7 +3,6 @@
 namespace Quantavoxel\LaravelBootstrapComponent\View\Components;
 
 use Illuminate\View\Component;
-use phpDocumentor\Reflection\PseudoTypes\ValueOf;
 use Quantavoxel\LaravelBootstrapComponent\Enums\ButtonHoverEffect;
 use Quantavoxel\LaravelBootstrapComponent\Enums\Color;
 
@@ -60,7 +59,7 @@ class Button extends Component
         $badgeClass = match ($this->badgePosition) {
             'top-right' => 'position-absolute top-0 start-100 translate-middle',
             'top-left' => 'position-absolute top-0 start-0 translate-middle',
-            'bottom-right' => 'position-absolute top-0 start-100 translate-middle',
+            'bottom-right' => 'position-absolute top-100 start-100 translate-middle',
             'bottom-left' => 'position-absolute top-100 start-0 translate-middle',
             default => 'position-absolute top-0 start-0 translate-middle',
         };

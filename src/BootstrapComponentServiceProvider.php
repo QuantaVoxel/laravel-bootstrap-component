@@ -32,18 +32,18 @@ final class BootstrapComponentServiceProvider extends ServiceProvider
     private function assetConfigure(): void
     {
         Blade::directive('qvComponentStyles', function () {
-            return <<<ECHO
-<link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.css')}}" >
-<link rel="stylesheet" href="{{asset('vendor/quantavoxel/bootstrap-component/assets/css/style.bundle.css')}}" >
-ECHO;
+            return "<?php if(config('bootstrap-component.load_assets', true)): ?>
+<link rel=\"stylesheet\" href=\"<?php echo asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.css'); ?>\" >
+<link rel=\"stylesheet\" href=\"<?php echo asset('vendor/quantavoxel/bootstrap-component/assets/css/style.bundle.css'); ?>\" >
+<?php endif; ?>";
         });
 
         Blade::directive('qvComponentScripts', function () {
-            return <<<ECHO
-<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/icon.js')}}" ></script>
-<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.js')}}" ></script>
-<script src="{{asset('vendor/quantavoxel/bootstrap-component/assets/js/scripts.bundle.js')}}" ></script>
-ECHO;
+            return "<?php if(config('bootstrap-component.load_assets', true)): ?>
+<script src=\"<?php echo asset('vendor/quantavoxel/bootstrap-component/assets/icon.js'); ?>\" ></script>
+<script src=\"<?php echo asset('vendor/quantavoxel/bootstrap-component/assets/plugins/global/plugins.bundle.js'); ?>\" ></script>
+<script src=\"<?php echo asset('vendor/quantavoxel/bootstrap-component/assets/js/scripts.bundle.js'); ?>\" ></script>
+<?php endif; ?>";
         });
 
         if ($this->app->runningInConsole()) {

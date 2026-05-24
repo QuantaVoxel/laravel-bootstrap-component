@@ -15,8 +15,8 @@
             </span>
             <h3 class="fs-4 fw-semibold mb-0 ms-4">{{ $title }}</h3>
 @else
-            <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#{{ $itemId }}" aria-expanded="false" aria-controls="{{ $itemId }}">
+            <button class="accordion-button fs-4 fw-semibold {{ $active ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#{{ $itemId }}" aria-expanded="{{ $active ? 'true' : 'false' }}" aria-controls="{{ $itemId }}">
                 {{ $title }}
             </button>
         @endif

@@ -18,10 +18,23 @@ You can install the package via composer:
 composer require quantavoxel/laravel-bootstrap-component
 ```
 
-After installation, publish the assets and configuration files using the following command:
+### Publishing Assets and Configuration
 
+This package includes a comprehensive **Metronic-style dashboard** asset tree (approx. 90MB). You can publish the assets and configuration files separately or together:
+
+**Publish Everything:**
 ```bash
 php artisan vendor:publish --provider="Quantavoxel\LaravelBootstrapComponent\BootstrapComponentServiceProvider"
+```
+
+**Publish Only Assets:**
+```bash
+php artisan vendor:publish --tag="qv-component-assets"
+```
+
+**Publish Only Configuration:**
+```bash
+php artisan vendor:publish --tag="qv-component-config"
 ```
 
 This will publish:
@@ -53,6 +66,13 @@ In your main Blade view (e.g., `resources/views/dashboard.blade.php`), simply wr
 
 This automatically sets up the HTML skeleton, Metronic theme styles, Iconify scripts, the Sidebar, and the Header.
 
+#### Asset Management
+By default, the `@qvComponentStyles` and `@qvComponentScripts` directives (used internally by the dashboard component) load the bundled Metronic and Iconify assets. You can disable this automatic loading in the `config/bootstrap-component.php` file if you wish to include them in your own asset pipeline:
+
+```php
+'load_assets' => false,
+```
+
 For detailed documentation on all available components (Buttons, Inputs, Modals, Cards, Avatars, etc.), please refer to the **[Component Documentation](docs/component.md)**.
 
 ---
@@ -63,23 +83,23 @@ The package uses simple PHP configuration files to generate the dashboard naviga
 
 ### Sidebar Configuration (`config/bootstrap-component-sidebar.php`)
 
-Use the provided helper functions to easily build your sidebar structure:
-- `add_heading('Title')`
-- `add_single_menu('Title', 'icon-name', '/url')`
-- `add_accordion_menu('Title', 'icon-name', [ ...sub menus ])`
-- `add_sub_menu('Title', '/url')`
+Use the provided helper functions (prefixed with `qv_` to avoid collisions) to easily build your sidebar structure:
+- `qv_add_heading('Title')`
+- `qv_add_single_menu('Title', 'icon-name', '/url')`
+- `qv_add_accordion_menu('Title', 'icon-name', [ ...sub menus ])`
+- `qv_add_sub_menu('Title', '/url')`
 
 **Example:**
 ```php
 <?php
 return [
-    add_heading('Dashboard'),
-    add_single_menu('Overview', 'solar:buildings-3-bold', '/dashboard'),
+    qv_add_heading('Dashboard'),
+    qv_add_single_menu('Overview', 'solar:buildings-3-bold', '/dashboard'),
     
-    add_heading('Modules'),
-    add_accordion_menu('Users', 'solar:users-group-rounded-bold', [
-        add_sub_menu('All Users', '/users'),
-        add_sub_menu('Roles', '/roles'),
+    qv_add_heading('Modules'),
+    qv_add_accordion_menu('Users', 'solar:users-group-rounded-bold', [
+        qv_add_sub_menu('All Users', '/users'),
+        qv_add_sub_menu('Roles', '/roles'),
     ])
 ];
 ```
@@ -87,18 +107,18 @@ return [
 ### Header Configuration (`config/bootstrap-component-header.php`)
 
 Similar to the sidebar, the header uses helper functions for navigation links:
-- `add_header_single_menu('Title', '/url')`
-- `add_header_dropdown_menu('Title', [ ...sub menus ])`
-- `add_header_sub_menu('Title', '/url')`
+- `qv_add_header_single_menu('Title', '/url')`
+- `qv_add_header_dropdown_menu('Title', [ ...sub menus ])`
+- `qv_add_header_sub_menu('Title', '/url')`
 
 **Example:**
 ```php
 <?php
 return [
-    add_header_single_menu('Home', '/'),
-    add_header_dropdown_menu('Resources', [
-        add_header_sub_menu('Documentation', '/docs'),
-        add_header_sub_menu('Support', '/support'),
+    qv_add_header_single_menu('Home', '/'),
+    qv_add_header_dropdown_menu('Resources', [
+        qv_add_header_sub_menu('Documentation', '/docs'),
+        qv_add_header_sub_menu('Support', '/support'),
     ]),
 ];
 ```
