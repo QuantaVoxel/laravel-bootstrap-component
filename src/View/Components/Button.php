@@ -32,7 +32,7 @@ class Button extends Component
      */
     public function __construct(
         public string  $color,
-        public string  $type = 'button',
+        public string  $htmlType = 'button',
         public ?string $hoverEffect = ButtonHoverEffect::ELEVATE_UP->value,
         public bool    $outline = false,
         public string  $outlineType = 'solid',

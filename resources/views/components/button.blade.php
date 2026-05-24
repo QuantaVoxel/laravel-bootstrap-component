@@ -1,4 +1,4 @@
-<{{ $type }}
+<{{ $htmlType }}
 {{ $attributes->merge()->class($class)}}
 >
 @if($icon)
@@ -19,4 +19,4 @@
             :light="$badgeLight"
     />
 @endif
-</{{$type}}>
+</{{$htmlType}}>

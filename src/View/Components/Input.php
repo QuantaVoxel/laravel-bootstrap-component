@@ -24,8 +24,13 @@ class Input extends Component
         public bool    $floating = false,
         // Sizing Property
         public ?string $size = null,
+        public ?string $help = null,
+        public ?string $placeholder = null,
     )
     {
+        if($this->floating && !$this->label){
+            $this->label = $this->name;
+        }
     }
 
     public function hasGroup($slots): bool

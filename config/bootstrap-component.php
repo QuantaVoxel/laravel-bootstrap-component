@@ -7,6 +7,10 @@ return [
     'logo-large-dark' => 'https://placehold.co/120x25/FFFFFF/000?text=LOGO+TEXT',
 
     'routes' => [
-        'dashboard' => '/dashboard'
+        'dashboard' => '/dashboard',
+        'login' => '/login',
+        'register' => '/register',
+        'forgot-password' => '/forgot-password',
+        'reset-password' => '/reset-password'
     ]
 ];
